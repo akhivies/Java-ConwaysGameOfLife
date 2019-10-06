@@ -21,10 +21,13 @@ public class Cell extends JButton {
 				if (!Running.isRunning()) {
 					if (getText().equals(" ")) {
 						setBackground(Color.BLACK);
+						setBorder(new LineBorder(Color.BLACK));
 						setText("*");
 					} else {
 						setBackground(Color.LIGHT_GRAY);
+						setBorder(new LineBorder(Color.GRAY));
 						setText(" ");
+						
 					}
 				}
 			}
@@ -45,7 +48,7 @@ public class Cell extends JButton {
 			for (int x = 0; x < 100; x++) {
 				if (Grid.cell[y][x].getText().equals("*")) {
 					return true;
-				}
+				} 
 			}
 		}
 		return false;

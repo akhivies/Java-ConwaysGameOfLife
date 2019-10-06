@@ -25,7 +25,7 @@ public class Running extends JButton{
 					setText("Pause");
 				} else {
 					running = false;
-					Frame.statusLabel.setText("Life is paused!");
+					Frame.statusLabel.setText("Life is paused! Click a cell to bring it to life.");
 					setText("Start");
 				}
 			}

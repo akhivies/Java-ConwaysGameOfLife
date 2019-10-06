@@ -12,7 +12,7 @@ public class Frame extends JFrame {
 
 	JFrame frame = new JFrame("Conway's Game of Life");
 	JPanel topPanel = new JPanel();
-	static JLabel statusLabel = new JLabel("Life is paused");
+	static JLabel statusLabel = new JLabel("Life is paused. Click a cell to bring it to life.");
 	JPanel panel = new JPanel();
 	JPanel bottomPanel = new JPanel();
 

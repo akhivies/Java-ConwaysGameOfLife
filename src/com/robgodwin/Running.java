@@ -1,19 +1,16 @@
 package com.robgodwin;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-
 import javax.swing.JButton;
-import javax.swing.border.LineBorder;
 
-public class Running extends JButton{
-	
+public class Running extends JButton {
+
 	public static boolean running = false;
-	
+
 	public Running() {
-		
+
 		setText("Start");
 		addMouseListener(new MouseAdapter() {
 
@@ -32,12 +29,12 @@ public class Running extends JButton{
 
 		});
 	}
-	
+
 	@Override
 	public Dimension getPreferredSize() {
 		return new Dimension(100, 20);
 	}
-	
+
 	public static boolean isRunning() {
 		return running;
 	}

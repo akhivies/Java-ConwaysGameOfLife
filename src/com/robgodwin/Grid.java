@@ -1,14 +1,10 @@
 package com.robgodwin;
 
 import java.awt.GridLayout;
-
 import javax.swing.JButton;
-
 import com.robgodwin.Cell;
 
 public class Grid extends JButton {
-
-	int t;
 
 	public Grid() {
 		setLayout(new GridLayout(100, 100, 0, 0));

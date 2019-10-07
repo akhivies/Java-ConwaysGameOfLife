@@ -43,15 +43,11 @@ public class Cell extends JButton {
 		return new Dimension(8, 8);
 	}
 	
-	private boolean isAlive() {
-		for (int y = 0; y < 100; y++) {
-			for (int x = 0; x < 100; x++) {
-				if (Grid.cell[y][x].getText().equals("*")) {
-					return true;
-				} 
-			}
+	private boolean isAlive(int y, int x) {
+		if (Grid.cell[y][x].getText().equals("*")) {
+			return true;
+		} else {
+			return false;
 		}
-		return false;
 	}
-
 }

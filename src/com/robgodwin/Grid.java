@@ -12,12 +12,12 @@ public class Grid extends JButton {
 	}
 
 	public static Cell[][] cell = new Cell[100][100];
+	public static String[][] nextGeneration = new String[100][100];
 
 	private void addButtons() {
 		for (int y = 0; y < 100; y++) {
 			for (int x = 0; x < 100; x++) {
 				add(cell[y][x] = new Cell());
-
 			}
 		}
 	}

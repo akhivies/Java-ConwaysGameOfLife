@@ -48,4 +48,33 @@ public class Cell extends JButton {
 			return false;
 		}
 	}
+	
+	public int surroundingAliveCount(int y, int x) {
+		int count = 0;
+		if (Grid.cell[y+1][x+1].getText().equals("*")) {
+			count++;
+		}
+		if (Grid.cell[y+1][x].getText().equals("*")) {
+			count++;
+		}
+		if (Grid.cell[y+1][x-1].getText().equals("*")) {
+			count++;
+		}
+		if (Grid.cell[y][x+1].getText().equals("*")) {
+			count++;
+		}
+		if (Grid.cell[y][x-1].getText().equals("*")) {
+			count++;
+		}
+		if (Grid.cell[y-1][x+1].getText().equals("*")) {
+			count++;
+		}
+		if (Grid.cell[y-1][x].getText().equals("*")) {
+			count++;
+		}
+		if (Grid.cell[y-1][x-1].getText().equals("*")) {
+			count++;
+		}
+		return count;
+	}
 }

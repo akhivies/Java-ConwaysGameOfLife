@@ -51,29 +51,240 @@ public class Cell extends JButton {
 	
 	public int surroundingAliveCount(int y, int x) {
 		int count = 0;
-		if (Grid.cell[y+1][x+1].getText().equals("*")) {
-			count++;
-		}
-		if (Grid.cell[y+1][x].getText().equals("*")) {
-			count++;
-		}
-		if (Grid.cell[y+1][x-1].getText().equals("*")) {
-			count++;
-		}
-		if (Grid.cell[y][x+1].getText().equals("*")) {
-			count++;
-		}
-		if (Grid.cell[y][x-1].getText().equals("*")) {
-			count++;
-		}
-		if (Grid.cell[y-1][x+1].getText().equals("*")) {
-			count++;
-		}
-		if (Grid.cell[y-1][x].getText().equals("*")) {
-			count++;
-		}
-		if (Grid.cell[y-1][x-1].getText().equals("*")) {
-			count++;
+		// If not at edge of grid check surrounding cells
+		if (y>0 && y<99 && x>0 && x<99) {
+			if (Grid.cell[y+1][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x-1].getText().equals("*")) {
+				count++;
+			}
+		// if at top left corner wrap
+		} else if (y==0 && x==0) {
+			if (Grid.cell[y+1][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][99].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][99].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[99][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[99][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[99][99].getText().equals("*")) {
+				count++;
+			}
+		// if at bottom left corner wrap
+		} else if (y==0 && x==99) {
+			if (Grid.cell[y+1][0].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][0].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[99][0].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[99][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[99][x-1].getText().equals("*")) {
+				count++;
+			}
+			// if at top right corner wrap
+		} else if (y==99 && x==0) {
+			if (Grid.cell[0][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[0][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[0][99].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][99].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][99].getText().equals("*")) {
+				count++;
+			}
+		// if at bottom right corner wrap
+		} else if (y==99 && x==99) {
+			if (Grid.cell[0][0].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[0][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[0][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][0].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][0].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x-1].getText().equals("*")) {
+				count++;
+			}
+		// if on left side wrap
+		} else if (y==0) {
+			if (Grid.cell[y+1][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[99][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[99][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[99][x-1].getText().equals("*")) {
+				count++;
+			}
+		// if on right side wrap
+		} else if (y==99) {
+			if (Grid.cell[0][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[0][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[0][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x-1].getText().equals("*")) {
+				count++;
+			}
+		// if on top side wrap
+		} else if (x==0) {
+			if (Grid.cell[y+1][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][99].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][99].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x+1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][99].getText().equals("*")) {
+				count++;
+			}
+		// if on bottom side wrap
+		} else if (x==99) {
+			if (Grid.cell[y+1][0].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y+1][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][0].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y][x-1].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][0].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x].getText().equals("*")) {
+				count++;
+			}
+			if (Grid.cell[y-1][x-1].getText().equals("*")) {
+				count++;
+			}
 		}
 		return count;
 	}

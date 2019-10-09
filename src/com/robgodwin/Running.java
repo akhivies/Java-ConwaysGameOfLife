@@ -16,18 +16,21 @@ public class Running extends JButton {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				if (!running) {
-					running = true;
-					Frame.statusLabel.setText("Life is running!");
-					setText("Pause");
-					Cell.setNextGeneration();
-				} else {
-					running = false;
-					Frame.statusLabel.setText("Life is paused! Click a cell to bring it to life.");
-					setText("Start");
-				}
+				new Thread() {
+					public void run() {
+						if (!running) {
+							running = true;
+							Frame.statusLabel.setText("Life is running!");
+							setText("Pause");
+							Cell.setNextGeneration();
+						} else {
+							running = false;
+							Frame.statusLabel.setText("Life is paused! Click a cell to bring it to life.");
+							setText("Start");
+						}
+					}
+				}.start();
 			}
-
 		});
 	}
 

@@ -42,11 +42,12 @@ public class Cell extends JButton {
 
 	@Override
 	public Dimension getPreferredSize() {
-		return new Dimension(15, 15);
+		return new Dimension(16, 16);
 	}
 
 	public static void setNextGeneration() {
 		while (Running.isRunning()) {
+			Frame.statusLabel.setText("Life is running! Current generation: " + Cell.generationCount);
 			for (int y = 0; y < 50; y++) {
 				for (int x = 0; x < 50; x++) {
 					int aliveNeighbors = surroundingAliveCount(y, x);
@@ -73,13 +74,17 @@ public class Cell extends JButton {
 		}
 	}
 
+	// Increment board forward one generation
 	public static void tick() {
+		
+		// Limit game to tick once per second
 		try {
 			TimeUnit.SECONDS.sleep(1);
 		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Something went wrong with tick");
 			e.printStackTrace();
 		}
+		generationCount++;
 		for (int y = 0; y < 50; y++) {
 			for (int x = 0; x < 50; x++) {
 				if (Grid.nextGeneration[y][x] == "*") {

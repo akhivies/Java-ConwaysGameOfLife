@@ -42,13 +42,13 @@ public class Cell extends JButton {
 
 	@Override
 	public Dimension getPreferredSize() {
-		return new Dimension(8, 8);
+		return new Dimension(15, 15);
 	}
 
 	public static void setNextGeneration() {
 		while (Running.isRunning()) {
-			for (int y = 0; y < 100; y++) {
-				for (int x = 0; x < 100; x++) {
+			for (int y = 0; y < 50; y++) {
+				for (int x = 0; x < 50; x++) {
 					int aliveNeighbors = surroundingAliveCount(y, x);
 					if (Grid.cell[y][x].isAlive(y, x)) {
 						// If less than two neighbors alive cell dies due to under-population
@@ -75,13 +75,13 @@ public class Cell extends JButton {
 
 	public static void tick() {
 		try {
-			TimeUnit.SECONDS.sleep(5);
+			TimeUnit.SECONDS.sleep(1);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		for (int y = 0; y < 100; y++) {
-			for (int x = 0; x < 100; x++) {
+		for (int y = 0; y < 50; y++) {
+			for (int x = 0; x < 50; x++) {
 				if (Grid.nextGeneration[y][x] == "*") {
 					Grid.cell[y][x].setText("*");
 					Grid.cell[y][x].setBackground(Color.BLACK);
@@ -106,7 +106,7 @@ public class Cell extends JButton {
 	public static int surroundingAliveCount(int y, int x) {
 		int count = 0;
 		// If not at edge of grid check surrounding cells
-		if (y > 0 && y < 99 && x > 0 && x < 99) {
+		if (y > 0 && y < 49 && x > 0 && x < 49) {
 			if (Grid.cell[y + 1][x + 1].getText().equals("*")) {
 				count++;
 			}
@@ -139,26 +139,26 @@ public class Cell extends JButton {
 			if (Grid.cell[y + 1][x].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[y + 1][99].getText().equals("*")) {
+			if (Grid.cell[y + 1][49].getText().equals("*")) {
 				count++;
 			}
 			if (Grid.cell[y][x + 1].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[y][99].getText().equals("*")) {
+			if (Grid.cell[y][49].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[99][x + 1].getText().equals("*")) {
+			if (Grid.cell[49][x + 1].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[99][x].getText().equals("*")) {
+			if (Grid.cell[49][x].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[99][99].getText().equals("*")) {
+			if (Grid.cell[49][49].getText().equals("*")) {
 				count++;
 			}
 			// if at bottom left corner wrap
-		} else if (y == 0 && x == 99) {
+		} else if (y == 0 && x == 49) {
 			if (Grid.cell[y + 1][0].getText().equals("*")) {
 				count++;
 			}
@@ -174,30 +174,30 @@ public class Cell extends JButton {
 			if (Grid.cell[y][x - 1].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[99][0].getText().equals("*")) {
+			if (Grid.cell[49][0].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[99][x].getText().equals("*")) {
+			if (Grid.cell[49][x].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[99][x - 1].getText().equals("*")) {
+			if (Grid.cell[49][x - 1].getText().equals("*")) {
 				count++;
 			}
 			// if at top right corner wrap
-		} else if (y == 99 && x == 0) {
+		} else if (y == 49 && x == 0) {
 			if (Grid.cell[0][x + 1].getText().equals("*")) {
 				count++;
 			}
 			if (Grid.cell[0][x].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[0][99].getText().equals("*")) {
+			if (Grid.cell[0][49].getText().equals("*")) {
 				count++;
 			}
 			if (Grid.cell[y][x + 1].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[y][99].getText().equals("*")) {
+			if (Grid.cell[y][49].getText().equals("*")) {
 				count++;
 			}
 			if (Grid.cell[y - 1][x + 1].getText().equals("*")) {
@@ -206,11 +206,11 @@ public class Cell extends JButton {
 			if (Grid.cell[y - 1][x].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[y - 1][99].getText().equals("*")) {
+			if (Grid.cell[y - 1][49].getText().equals("*")) {
 				count++;
 			}
 			// if at bottom right corner wrap
-		} else if (y == 99 && x == 99) {
+		} else if (y == 49 && x == 49) {
 			if (Grid.cell[0][0].getText().equals("*")) {
 				count++;
 			}
@@ -252,17 +252,17 @@ public class Cell extends JButton {
 			if (Grid.cell[y][x - 1].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[99][x + 1].getText().equals("*")) {
+			if (Grid.cell[49][x + 1].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[99][x].getText().equals("*")) {
+			if (Grid.cell[49][x].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[99][x - 1].getText().equals("*")) {
+			if (Grid.cell[49][x - 1].getText().equals("*")) {
 				count++;
 			}
 			// if on right side wrap
-		} else if (y == 99) {
+		} else if (y == 49) {
 			if (Grid.cell[0][x + 1].getText().equals("*")) {
 				count++;
 			}
@@ -295,13 +295,13 @@ public class Cell extends JButton {
 			if (Grid.cell[y + 1][x].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[y + 1][99].getText().equals("*")) {
+			if (Grid.cell[y + 1][49].getText().equals("*")) {
 				count++;
 			}
 			if (Grid.cell[y][x + 1].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[y][99].getText().equals("*")) {
+			if (Grid.cell[y][49].getText().equals("*")) {
 				count++;
 			}
 			if (Grid.cell[y - 1][x + 1].getText().equals("*")) {
@@ -310,11 +310,11 @@ public class Cell extends JButton {
 			if (Grid.cell[y - 1][x].getText().equals("*")) {
 				count++;
 			}
-			if (Grid.cell[y - 1][99].getText().equals("*")) {
+			if (Grid.cell[y - 1][49].getText().equals("*")) {
 				count++;
 			}
 			// if on bottom side wrap
-		} else if (x == 99) {
+		} else if (x == 49) {
 			if (Grid.cell[y + 1][0].getText().equals("*")) {
 				count++;
 			}

@@ -52,7 +52,7 @@ public class Cell extends JButton {
 				for (int x = 0; x < 50; x++) {
 					int aliveNeighbors = surroundingAliveCount(y, x);
 					if (Grid.cell[y][x].isAlive(y, x)) {
-						// If less than two neighbors alive cell dies due to under-population
+							// If less than two neighbors alive cell dies due to under-population
 						if (aliveNeighbors < 2) {
 							Grid.nextGeneration[y][x] = " ";
 							// If two or three neighbors cell lives on to next generation
@@ -70,16 +70,16 @@ public class Cell extends JButton {
 					}
 				}
 			}
-		tick();
+			tick();
 		}
 	}
 
 	// Increment board forward one generation
 	public static void tick() {
-		
+
 		// Limit game to tick once per second
 		try {
-			TimeUnit.SECONDS.sleep(1);
+			TimeUnit.MILLISECONDS.sleep(500);
 		} catch (InterruptedException e) {
 			System.out.println("Something went wrong with tick");
 			e.printStackTrace();
